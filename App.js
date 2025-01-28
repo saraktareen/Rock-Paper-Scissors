@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 
@@ -7,39 +6,42 @@ import WelcomeScreen from './components/WelcomeScreen';
 import TutorialScreen from './components/TutorialScreen';
 import GameScreen from './components/GameScreen';
 import HomeScreen from './components/HomeScreen';
+import ResultScreen from './components/ResultScreen';
 
 const App = () => {
   const [activeScreen, setActiveScreen] = useState('SplashScreen');
 
-  const handleContinue = () => {
-    setActiveScreen('HomeScreen'); 
-  };
+  const handleSplashComplete = () => setActiveScreen('WelcomeScreen');
+  const handleWelcomeContinue = () => setActiveScreen('TutorialScreen');
+  const handleTutorialContinue = () => setActiveScreen('HomeScreen');
+  const handleGameEnd = () => setActiveScreen('ResultScreen');
 
-  const handleBack = () => {
-    setActiveScreen('HomeScreen'); 
-  };
-
-
-
+ 
   return (
     <View style={styles.container}>
       {activeScreen === 'SplashScreen' && (
-        <SplashScreen onSplashComplete={() => setActiveScreen('WelcomeScreen')} />
+        <SplashScreen onSplashComplete={handleSplashComplete} />
       )}
 
       {activeScreen === 'WelcomeScreen' && (
-        <WelcomeScreen onContinue={() => setActiveScreen('TutorialScreen')} />
-    )}
-
-        {activeScreen === 'TutorialScreen' && (
-        <TutorialScreen onContinue={handleContinue} />
-    )}
-        {activeScreen === 'HomeScreen' && <HomeScreen />}
-
-        {activeScreen === 'GameScreen' && (
-        <GameScreen handleGoBack={handleBack} />
+        <WelcomeScreen onContinue={handleWelcomeContinue} />
       )}
-          </View>
+
+      {activeScreen === 'TutorialScreen' && (
+        <TutorialScreen onContinue={handleTutorialContinue} />
+      )}
+
+      {activeScreen === 'HomeScreen' && <HomeScreen />}
+
+      
+      {activeScreen === 'GameScreen' && (
+        <GameScreen onGameEnd={handleGameEnd} />)}
+
+      {activeScreen === 'ResultScreen' && <ResultScreen/>}
+
+    </View>
+
+
   );
 };
 

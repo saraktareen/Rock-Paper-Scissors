@@ -12,6 +12,7 @@ export default function RootLayout() {
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
     BebasKai: require('../assets/fonts/BebasKai.ttf'),
     SFProDisplayRegular: require('../assets/fonts/SFProDisplayRegular.otf'),
+    QUANTU1H: require('../assets/fonts/QUANTU1H.ttf'),
   });
 
   useEffect(() => {

@@ -1,15 +1,17 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { useFonts } from 'expo-font';
+import { Dimensions } from 'react-native';
 
-// Replace with actual PNG file imports
+const { width, height } = Dimensions.get('window');
+
 import WelcomeScreenBg from '../assets/images/WelcomeScreen_Bg.png'; 
 import RPS_Logo from '../assets/images/RPS_Logo.png';
 import Line from '../assets/images/WelcomeScreen_Line.png';
 
 export default function WelcomeScreen({ onContinue }) {
   const [loaded] = useFonts({
-    BebasKai: require('../assets/fonts/BebasKai.ttf'), // Make sure this path is correct
+    BebasKai: require('../assets/fonts/BebasKai.ttf'), 
     SFProDisplayRegular: require('../assets/fonts/SFProDisplayRegular.otf'),
   });
 
@@ -21,10 +23,14 @@ export default function WelcomeScreen({ onContinue }) {
       <Image source={WelcomeScreenBg} style={styles.backgroundImage} />
 
       <View style={styles.logoContainer}>
-        <Image source={RPS_Logo} style={styles.logo} />
+        {/* <Image source={RPS_Logo} /> */}
+        <Text style={[styles.text, { fontSize: 60 }]}>Rock</Text>
+        <Text style={[styles.text, { fontSize: 55 }]}>Paper</Text>
+        <Text style={[styles.text, { fontSize: 50 }]}>Scissors</Text>
+        <Image source={Line} style={styles.line} />
+
       </View>
 
-      <Image source={Line} style={styles.line} />
 
       <View style={styles.welcomeTextContainer}>
         <Text style={styles.welcomeText}>
@@ -64,21 +70,27 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     position: 'absolute',
-    top: '15%', // Adjusted to place the logo near the top
+    top: '15%',
     justifyContent: 'center',
     alignItems: 'center',
     zIndex: 1,
   },
+  text: {
+    fontFamily: 'QUANTU1H',
+    color: '#ffffff',
+    textAlign: 'center',
+    marginVertical: -10, 
+  },
   
   line: {
     position: 'absolute',
-    top: '38%', // Adjusted to place the line 3% beneath the logo
+    top: '110%', 
     left: '50%',
     transform: [{ translateX: '-50%' }],
   },
   welcomeTextContainer: {
     position: 'absolute',
-    top: '40%', // Placed the text beneath the line
+    top: '38%', 
     maxWidth: '90%',
     padding: 20,
     zIndex: 1,
@@ -92,10 +104,10 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     position: 'absolute',
-    bottom: '10%', // Button placed closer to the bottom
+    bottom: '10%', 
     width: '100%',
     justifyContent: 'center',
-    alignItems: 'center', // Centered the button horizontally
+    alignItems: 'center',
   },
   continueButton: {
     backgroundColor: '#ffffff',
@@ -110,9 +122,24 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 20,
     color: '#000',
-    textAlign: 'center', // Ensure the text is centered within the button
+    textAlign: 'center',
     fontFamily: 'BebasKai',
-
   },
+
+
+  ...(width <= 360 && height <= 740
+    ? {
+      
+      
+
+      
+      }
+    : {}),
+
+
+ 
+
+
+
 });
 
