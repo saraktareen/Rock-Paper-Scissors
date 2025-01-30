@@ -1,6 +1,6 @@
-When you download the zip file, extract it and then write
-npm install expo-router
-npx expo start --go
+# When you download the zip file, extract it and then write
+1. npm install expo-router
+2. npx expo start --go
 
 # Welcome to your Expo app 👋
 
