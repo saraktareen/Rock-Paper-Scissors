@@ -12,7 +12,7 @@ import LoseIcon from '../assets/images/Lose_Icon.png';
 import DrawIcon from '../assets/images/Draw_Icon.png'; 
 import HomeIcon from '../assets/images/Home_Icon.png'; 
 import SettingsIcon from '../assets/images/Settings_Icon.png'; 
-import RestartIcon from '../assets/images/Restart_Icon.png'; 
+import RestartIcon from '../assets/images/restart_icon.png'; 
 
 import SoundIcon from '../assets/images/Sound_Icon.png'; 
 import MusicIcon from '../assets/images/Music_Icon.png'; 
